@@ -23,7 +23,7 @@ public with sharing class ElectricityBillCalculator {
             throw new AuraHandledException(e.getMessage());
         }
     }
-
+    //change to push
     @AuraEnabled
     public static String saveRentalEntries(String ruId, Integer prevReading, Integer curReading, String month, String year, Integer waterbill) {
         String renMsg;
@@ -68,7 +68,7 @@ public with sharing class ElectricityBillCalculator {
                     }
                                    
             }
- 
+
             System.debug('newebList'+newebList);
             if(newebList.size()>0){
                 insert newebList;
