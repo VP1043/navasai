@@ -1,0 +1,50 @@
+<template>
+    <lightning-card class="card" variant="narrow" title="Rent Entries" icon-name="standard:account">
+      <div slot="actions">
+        <lightning-button-icon icon-name="utility:close" label="Close" onclick={closeFlaghandler}></lightning-button-icon>
+      </div>
+      <div class="container slds-modal__content">
+        <div class="con slds-grid slds-wrap">
+          <div class="slds-col slds-size_10-of-12">
+            <c-custom-lookup-lwc class="slds-m-bottom_large" icon-name="standard:account"
+              s-object-api-name="Rental_Unit__c"
+              label="Property Name"
+              filled-flag="Yes"
+              onlookupupdate={lookupRecord}
+              placeholder="Search Property here...">
+            </c-custom-lookup-lwc>
+          </div>
+        </div>
+  
+        <div class="con slds-grid slds-wrap">
+          <div class="slds-col slds-size_5-of-12">
+            <lightning-combobox label="Statement Month" value={monthvalue} placeholder="Select Month" options={monthList} onchange={handleMonthChange}></lightning-combobox>
+          </div>
+  
+          <div class="con slds-col slds-size_5-of-12">
+            <lightning-combobox label="Year" value={yearvalue} placeholder="Select Year" options={finalYearList} onchange={handleYearChange}></lightning-combobox>
+          </div>
+        </div>
+  
+        <div class="con slds-grid slds-wrap">
+          <div class="slds-col slds-size_10-of-12">
+            <lightning-input class="slds-m-bottom_large" type="number" label="Enter Water Bill" value={billAmount} placeholder="Enter Water Bill" onchange={handleWaterbillChange}></lightning-input>
+          </div>
+        </div>
+  
+        <div class="con slds-grid slds-wrap">
+          <div class="slds-col slds-size_5-of-12">
+            <lightning-input class="slds-m-bottom_large" type="number" label="Enter Current Reading" value={curreading} placeholder="Enter Reading" onchange={handleCurReadingChange}></lightning-input>
+          </div>
+  
+          <div class="slds-col slds-size_5-of-12">
+            <lightning-input class="slds-m-bottom_large" type="number" label="Enter Previous Reading" value={prvreading} placeholder="Enter Reading" onchange={handlePrvReadingChange}></lightning-input>
+          </div>
+        </div>
+  
+        <lightning-button variant="brand" label="Submit" title="Primary action" class="slds-m-top_medium" onclick={handleCLick} disabled={validateBtnState}></lightning-button>
+  
+        <template if:true={totalBill}></template>
+      </div>
+    </lightning-card>
+  </template>

@@ -1,0 +1,64 @@
+<apex:page renderAs="pdf" applyHtmlTag="false" applyBodyTag="false" showHeader="false">
+    <html>
+    <head></head>
+    <body>
+        <h1 style="font-size: 20px; text-align: center; text-transform: uppercase; margin-bottom: 30px;">Lease Agreement</h1>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Landlord:</th>
+                <td style="padding: 10px; border: 1px solid #ccc;">{!$CurrentPage.parameters.Landlord}</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Tenant:</th>
+                <td style="padding: 10px; border: 1px solid #ccc;">{!$CurrentPage.parameters.Tenant}</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Property:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">{!$CurrentPage.parameters.Unit},<br/>MIDC Gokul Shirgaon, Kolhapur, MH</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Term of Lease:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Start Date: {!$CurrentPage.parameters.StartDate}<br/>End Date: {!$CurrentPage.parameters.EndDate}</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Rent Payment:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Monthly Rent: Rs.{!$CurrentPage.parameters.Rent}<br/>Payment Due Date: 1st of each month<br/>Late Payment Fee: Rs.500</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Security Deposit:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Amount: {!$CurrentPage.parameters.Deposite}<br/>Use and Return: Within 30 days after lease termination</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Utilities:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Utilities Included: Water<br/>Utilities Responsibility: Tenant</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Maintenance and Repairs:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Tenant's Responsibilities: Keep property clean and report damages<br/>Landlord's Responsibilities: Maintain property</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Termination:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">Early Termination: 30 days notice<br/>Termination by Landlord: 60 days notice</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Additional Terms and Conditions:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">No pets allowed<br/>No smoking<br/>Parking for one vehicle only</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Governing Law:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">State of Maharashtra, India</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-weight: bold; text-align: left;">Entire Agreement:</th>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc;">This lease agreement constitutes the entire agreement between the Landlord and Tenant</td>
+            </tr>
+        </table>
+
+        <div style="margin-top: 20px;">
+            <p style="margin-bottom: 10px;"><b>Landlord's Signature:</b> ________________________</p>
+            <p><b>Tenant's Signature:</b> ________________________</p>
+        </div>
+    </body>
+    </html>
+</apex:page>

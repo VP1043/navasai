@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>60.0</apiVersion>
+	<isExposed>true</isExposed>
+	<targets>
+		<target>lightning__AppPage</target>
+		<target>lightning__HomePage</target>
+		<target>lightning__RecordPage</target>
+		<target>lightning__FlowScreen</target>
+	</targets>
+	 <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage,lightning__FlowScreen">
+            <property name="tabData" type="String" label="Tab Data" description="JSON string containing tab label, value, and flow API name."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

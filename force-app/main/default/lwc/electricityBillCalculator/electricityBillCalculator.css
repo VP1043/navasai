@@ -1,0 +1,23 @@
+.container{
+    margin: auto;
+    overflow:initial;
+    padding-left: 11.5%;
+}
+:host {
+    display: inline-block;
+    position: relative;
+  }
+  
+  button {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  :host(:hover) button {
+    visibility: visible;
+    opacity: 1;
+  }

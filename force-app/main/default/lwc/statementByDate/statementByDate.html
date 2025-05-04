@@ -1,0 +1,110 @@
+<template>
+    <lightning-card title="Rental Statements" icon-name="standard:price_books">
+        <div class="container slds-modal__content">
+            <div class="con slds-grid slds-wrap">
+                <div class="slds-col slds-size_5-of-12" style="margin-top:1.2%;">
+                    <lightning-combobox label="Statement Month" value={monthvalue} placeholder="Select Month" 
+                        options={monthList} onchange={handleMonthChange}>
+                    </lightning-combobox>  
+                </div>
+
+                <div class="con slds-col slds-size_5-of-12" style="margin-top:1.2%;">
+                    <lightning-combobox label="Year" value={yearvalue} placeholder="Select Year" 
+                        options={finalYearList} onchange={handleYearChange}>
+                    </lightning-combobox>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_10-of-12">
+                    <lightning-button variant="brand" label="Submit" title="Primary action"  class="slds-m-top_medium slds-float_right"  style="margin-top: 20px; "  onclick={handleCLick} disabled={validateBtnState}></lightning-button>
+                </div>
+                <div class="slds-col slds-size_10-of-12">
+                    <lightning-button variant="brand" label="Send Email" title="Primary action"  class="slds-m-top_medium slds-float_right"  style="margin-top: 20px; "  onclick={handleCLickEmail} disabled={validateBtnState}></lightning-button>
+                </div>
+            </div>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+    <div if:true={statementFlag}>
+        <lightning-card title="Statement Detail">
+        <lightning-layout multiple-rows="true">
+        <template for:each={finalStatement} for:item="tableitem" for:index="indexVariable">
+            <lightning-layout-item class="slds-p-around_xx-small" size=6 key={tableitem.Id}>
+                <div class="container1 slds-modal__content" key={tableitem.Id}>
+                    <div class="con slds-grid slds-wrap">
+                        <div class="slds-col slds-size_5-of-12" style="margin-top:1.2%; text-align: right;">
+
+                        </div>
+                        <div class="slds-col slds-size_5-of-12" style="margin-top:1.2%; text-align: right; font-weight: bold;">
+                            <h2>{tableitem.Rental_Agreement__r.Rental_Unit__r.Name}</h2>
+                            <h2>{tableitem.Rental_Agreement__r.Renter__r.Name}</h2>
+                            <h2>{tableitem.Month__c} - {tableitem.Year__c}</h2>
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>
+                                Details
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Energy Bill
+                            </td>
+                            <td>
+                                {tableitem.Light_Bill__c}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Water Bill
+                            </td>
+                            <td>
+                                {tableitem.Water_Bill__c}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rent
+                            </td>
+                            <td>
+                                {tableitem.Amount__c}
+                            </td>
+                        </tr>
+                        <tr if:true={tableitem.Balance__c}>
+                            <td>
+                                Last Due
+                            </td>
+                            <td>
+                                {tableitem.Balance__c}
+                            </td>
+                        </tr>
+                        <tr if:true={tableitem.Amount_Paid__c}>
+                            <td>
+                                Amount Paid
+                            </td>
+                            <td>
+                                {tableitem.Amount_Paid__c}
+                            </td>
+                        </tr>
+                        <tr class="overline">
+                            <td>
+                                Total
+                            </td>
+                            <td>
+                                {tableitem.Total_Amount__c}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </lightning-layout-item>
+        </template>
+        </lightning-layout>
+    </lightning-card>
+    </div>
+</template>

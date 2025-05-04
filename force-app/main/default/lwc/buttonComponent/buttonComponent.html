@@ -1,0 +1,6 @@
+<template>
+    <lightning-button label="Open Modal" onclick={openModal}></lightning-button>
+    <template if:true={isModalOpen}>
+        <c-modal-component product-data={productData} onclose={closeModal}></c-modal-component>
+    </template>
+</template>

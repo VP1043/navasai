@@ -1,0 +1,15 @@
+<template>
+    <button class="close-button" onclick={closeFlaghandler}></button>
+
+    <div class="container slds-modal__content">
+        <lightning-tabset>
+            <lightning-tab label="Individual Statement">
+                <c-statement-filter></c-statement-filter>
+            </lightning-tab>
+            <lightning-tab label="Group Statements">
+                <c-statement-By-Date></c-statement-By-Date>
+                <!--<c-invoice-component></c-invoice-component>-->
+            </lightning-tab>
+        </lightning-tabset> 
+    </div>
+</template>

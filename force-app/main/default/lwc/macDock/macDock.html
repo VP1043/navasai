@@ -1,0 +1,53 @@
+<template> 
+    <div style={backgroundStyle}>
+        <template if:true={entriesFlag} >
+            <div class="entries" draggable="true">
+                <c-electricity-bill-calculator ongetflagvalue={handleFlagValue}></c-electricity-bill-calculator>
+            </div>
+        </template>
+
+        <template if:true={agreeFlag} >
+            <div class="entries" draggable="true">
+                <c-new-rental-aggrement ongetflagvalue={handleAgreeFlagValue}></c-new-rental-aggrement>
+            </div>
+        </template>
+
+        <template if:true={agreeUnitFlag} >
+            <div class="entries" draggable="true">
+                <c-statement-filter ongetflagvalue={handleUnitFlagValue}></c-statement-filter>
+            </div>
+        </template>
+
+    <div class="container">
+        <div class="dock">
+            <ul>
+                <li>
+                    <span>New Agreement</span><a  onclick={newAgreement}><img src="https://navasai2-dev-ed.develop.my.salesforce.com/img/icon/t4v35/custom/custom14_120.png" style="border-radius: 50%;"></img>
+                    </a>
+                </li>
+
+                <li>
+                    <span>Rent Entries</span><a  onclick={newEntries}><img src="https://navasai2-dev-ed.develop.my.salesforce.com/img/icon/t4v35/custom/custom83_120.png" style="border-radius: 50%;"></img>
+                    </a>
+                </li>
+
+                <li>
+                    <span>Rental Statement</span><a onclick={rentUnits}><img src="https://navasai2-dev-ed.develop.my.salesforce.com/img/icon/t4v35/custom/custom53_120.png" style="border-radius: 50%;"></img>
+                    </a>
+                </li>
+
+                <li>
+                    <span>Statement</span><a href='#' onclick={rentStatement}><img src="https://navasai2-dev-ed.develop.my.salesforce.com/img/icon/t4v35/custom/custom79_120.png" style="border-radius: 50%;"></img>
+                    </a>
+                </li>
+
+                <li>
+                    <span>Energy Bill</span><a href='#' onclick={energy}><img src="https://navasai2-dev-ed.develop.my.salesforce.com/img/icon/t4v35/custom/custom47_120.png" style="border-radius: 50%;"></img>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
+</template>

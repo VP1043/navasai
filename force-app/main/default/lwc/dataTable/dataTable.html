@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Data Table" icon-name="utility:table">
+        <div class="slds-m-around_medium slds-grid slds-wrap slds-grid_vertical-align_center">
+            <!-- Month and Year Comboboxes -->
+            <div class="slds-col slds-size_1-of-2 slds-p-right_small">
+                <lightning-combobox name="month" label="Month" value={selectedMonth} placeholder="Select Month"
+                    options={monthOptions} onchange={handleMonthChange}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-p-left_small">
+                <lightning-combobox name="year" label="Year" value={selectedYear} placeholder="Select Year"
+                    options={yearOptions} onchange={handleYearChange}>
+                </lightning-combobox>
+            </div>
+        </div>
+
+        <template if:true={isDataAvailable}>
+            <div class="slds-m-around_medium">
+                <div class="unit-rate-container">
+                    <lightning-input type="number" label="Main Energy Bill Amount" onchange={handleBillChange} value={energyAmountRate} data-name="energyBillTotal"
+                        class="slds-m-top_small small-unit-rate">
+                    </lightning-input>
+                </div>
+                <div class="data-table-container">
+                    <div class="data-table-wrapper">
+                        <lightning-datatable key-field="statementId" data={data} onsave={handleCellChange}
+                            draft-values={draftValues} columns={columns} hide-checkbox-column="true" class="data-table">
+                        </lightning-datatable>
+                    </div>
+                    <div class="slds-p-right_small slds-m-around_small">
+                        <lightning-input type="checkbox" label="Show Energy Details" checked={showEnergyBill}
+                            onchange={handleColumnToggle} class="slds-m-top_small">
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template if:false={isDataAvailable}>
+            <div class="slds-text-align_center slds-m-top_medium">
+                <h1 class="no-data-message">No Data Found...</h1>
+            </div>
+        </template>
+    </lightning-card>
+</template>

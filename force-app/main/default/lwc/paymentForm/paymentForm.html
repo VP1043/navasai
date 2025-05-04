@@ -1,0 +1,48 @@
+<template>
+
+      <div class="form-box">
+          <button class="close-button" onclick={closeFlaghandler}></button>
+        <div class="button-box">
+          <div id="btn">
+
+          </div>
+          <h1 type="button" class="toggle-btn" >Rental Payment</h1>
+        </div>
+        <!--=================login form ====================-->
+        <!-- <form action="selectlogin.php" method="POST" id="inputLog" class="input-login">
+            <input type="text" class="input-field" name="log-username" placeholder="Enter username..." required>
+            <input type="password" class="input-field" name="log-password" placeholder="Enter password..." required>
+            <button type="submit" name="logbtn" class="submit-btn">Log in</button>
+        </form> -->
+        <!--=================registration form ====================-->
+        <div class="input-reg">
+          <div class="container slds-modal__content" > 
+            <div class="con slds-grid slds-wrap">
+                <div class="slds-col slds-size_11-of-12" style="margin:auto;"> 
+                <c-custom-lookup-lwc class="slds-m-bottom_large" icon-name="standard:account"
+                s-object-api-name="Statement__c"
+                label="Statement Name"
+                onlookupupdate={lookupRecord}
+                placeholder="Search Statement here..."></c-custom-lookup-lwc>
+               </div>
+            </div>
+            <lightning-button variant="brand" label="Submit" title="Primary action"  class="slds-m-top_medium"  style="margin-top: 20px; "  onclick={handleSearchCLick}></lightning-button>
+            <template if:true={statementFlag}>
+              <div>
+              <h2>Total Amount : {finalTot}</h2>
+              </div>
+            </template>
+            <div class="con slds-grid slds-wrap">
+                <div class="slds-col slds-size_11-of-12" style="margin:auto;">
+                    <lightning-input class="slds-m-bottom_large" type="number"  label="Amount"  value={handleAmount} placeholder="Enter Amount" onchange={handleAmountChange}>
+                    </lightning-input>
+                </div>
+            </div>
+            <!-- <lightning-button variant="brand" label="Submit" title="Primary action"  class="slds-m-top_medium"  style="margin-top: 20px; "  onclick={handleCLick} disabled={validateBtnState}></lightning-button> -->
+            <button type="submit" name="regbtn" onclick={handleCLick} disabled={validateBtnState} class="submit-btn">Submit</button>
+
+        </div>
+        </div>
+      </div>
+
+</template>

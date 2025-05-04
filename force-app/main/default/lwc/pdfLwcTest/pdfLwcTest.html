@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-grid slds-wrap slds-grid--align-center">
+        <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+            <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
+            <lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}></lightning-input>
+            <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}></lightning-input>
+            <lightning-button label="Generate PDF" onclick={handleGeneratePDFClick} variant="brand"></lightning-button>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+            <template if:true={pdfURL}>
+                <a href={pdfURL} download>Download PDF</a>
+            </template>
+        </div>
+    </div>
+</template>

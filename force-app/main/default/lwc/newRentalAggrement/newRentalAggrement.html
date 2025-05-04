@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="New Rental Agreement" icon-name="standard:opportunity">
+        <div slot="actions">
+            <lightning-button-icon
+                icon-name="utility:close" label="Close" onclick={closeFlaghandler}
+            ></lightning-button-icon>
+        </div>
+        <div class="container slds-modal__content">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_10-of-12" >
+                <c-custom-lookup-lwc class="slds-m-bottom_large" icon-name="standard:account"
+                s-object-api-name="Rental_Unit__c"
+                filled-flag="No"
+                label="Property Name"
+                onlookupupdate={lookupRecordProperty}
+                placeholder="Search Property here..."></c-custom-lookup-lwc>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_10-of-12" style="margin-top:1.2%;">
+                    <lightning-input class="slds-m-bottom_large" type="text"  label="Agreement Name"  value={agreementName} placeholder="Enter Agreement Name" onchange={handleAgreementChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_10-of-12" style="margin-top:1.2%;">
+                <c-custom-lookup-lwc class="slds-m-bottom_large" icon-name="standard:contact"
+                s-object-api-name="Contact"
+                label="Renter"
+                onlookupupdate={lookupRecordContact}
+                placeholder="Search Renter here..."></c-custom-lookup-lwc>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_5-of-12" style="margin-top:1.2%;">
+                    <lightning-input class="slds-m-bottom_large" type="number"  label="Deposit"  value={depositValue} placeholder="Enter Deposit" onchange={handleDepositChange}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-col slds-size_5-of-12" style="margin-top:1.2%;">
+                    <lightning-input class="slds-m-bottom_large" type="number"  label="Monthly Rent"  value={monthRent} placeholder="Enter Rent Amount" onchange={handleMonthRentChange}>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_10-of-12">
+                    <lightning-button variant="brand" label="Submit" title="Primary action"  class="slds-m-top_medium slds-float_right"  style="margin-top: 20px; "  onclick={handleCLick} disabled={validateBtnState}></lightning-button>
+                </div>
+            </div>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

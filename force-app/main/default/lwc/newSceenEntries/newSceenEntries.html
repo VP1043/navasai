@@ -1,0 +1,12 @@
+<template>
+  <div class="slds-m-bottom_large">
+    <c-custom-lookup-lwc class="my-custom-lookup"
+      icon-name="standard:account"
+      s-object-api-name="Rental_Unit__c"
+      label="Property Name"
+      filled-flag="Yes"
+      onlookupupdate={lookupRecord}
+      placeholder="Search Property here...">
+    </c-custom-lookup-lwc>
+  </div>
+</template>

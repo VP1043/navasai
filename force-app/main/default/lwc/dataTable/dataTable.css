@@ -1,0 +1,135 @@
+/* Base Styles for Desktop */
+.data-table-container {
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-top: 1rem;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.data-table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.data-table {
+    min-width: 100%; /* Ensure table takes full width of the container */
+    font-size: 14px;
+}
+
+.data-table thead th {
+    font-size: 16px; /* Larger font size for headers on desktop */
+    padding: 0.75rem; /* Increase padding for better readability */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show ellipsis for text overflow */
+}
+
+.unit-rate-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.small-unit-rate {
+    max-width: 120px;
+    font-size: 12px;
+    padding: 0.5rem;
+}
+
+.no-data-message {
+    color: #606c77;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.slds-table tbody tr[data-row-key-value="total"] {
+    font-weight: bold;
+    background-color: #f3f3f3; /* Light grey background */
+    color: #000; /* Black text color */
+}
+
+
+/* Responsive Styles for Tablets and Mobile Devices */
+@media (max-width: 768px) {
+    .slds-grid {
+        display: block;
+    }
+
+    .slds-col {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .slds-col.slds-size_1-of-2 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .data-table-container {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .data-table-wrapper {
+        overflow-x: auto; /* Ensure scrolling is enabled */
+    }
+
+    .data-table {
+        font-size: 12px; /* Smaller font size for mobile */
+    }
+
+    .data-table thead th {
+        font-size: 14px; /* Adjust header font size for smaller screens */
+        padding: 0.5rem; /* Adjust padding for better fit */
+        white-space: normal; /* Allow text wrapping */
+        text-overflow: clip; /* Disable ellipsis for better wrapping */
+        overflow: visible; /* Allow text to be visible */
+    }
+
+    .unit-rate-container {
+        justify-content: center; /* Center the unit rate input */
+        margin-bottom: 0.5rem;
+    }
+
+    .small-unit-rate {
+        max-width: 100%;
+        font-size: 14px; /* Slightly larger font size for readability */
+    }
+
+    .no-data-message {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Additional Styles for Smaller Mobile Devices */
+@media (max-width: 480px) {
+    .data-table-container {
+        padding: 0.25rem;
+        margin-top: 0.25rem;
+    }
+
+    .data-table {
+        font-size: 10px; /* Further reduce font size for very small screens */
+    }
+
+    .data-table thead th {
+        font-size: 12px; /* Adjust header font size for very small screens */
+        padding: 0.25rem; /* Adjust padding for smaller screens */
+        white-space: normal; /* Ensure text wraps */
+        text-overflow: clip; /* Ensure no ellipsis for better wrapping */
+        overflow: visible; /* Ensure text is fully visible */
+    }
+
+    .unit-rate-container {
+        flex-direction: column; /* Stack the unit rate input vertically */
+        align-items: stretch; /* Full width for unit rate input */
+    }
+
+    .small-unit-rate {
+        font-size: 16px; /* Larger font size for readability */
+    }
+}

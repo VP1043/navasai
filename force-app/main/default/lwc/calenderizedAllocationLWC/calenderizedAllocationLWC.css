@@ -1,0 +1,31 @@
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.fixed-column {
+    position: sticky;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    width: 150px; /* Adjust this width as needed */
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.info-icon-container {
+    margin-right: 10px; /* Adjust the spacing between the icon and the input box as needed */
+}
+
+.header-row th {
+    background-color: #0070d2; /* Adjust the background color as needed */
+    color: white; /* Set text color to white for better readability */
+}
+
+.bold {
+    font-weight: bold;
+}

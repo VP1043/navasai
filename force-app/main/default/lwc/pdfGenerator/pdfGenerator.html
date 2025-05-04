@@ -1,0 +1,93 @@
+<template>
+    <lightning-card>
+      
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="6" padding="around-small" >
+                <template if:true={defaultFlag} >
+                    <div class="entries" draggable="true">
+                        <c-default-card></c-default-card>
+                    </div>
+                </template>
+                <template if:true={entriesFlag} >
+                    <div class="entries" draggable="true">
+                        <c-rental-entries-form ongetflagvalue={handleFlagValue}></c-rental-entries-form>
+                    </div>
+                </template>
+                <template if:true={agreeFlag} >
+                    <div class="entries" draggable="true">
+                        <c-rental-agreement-form ongetflagvalue={handleAgreeFlagValue}></c-rental-agreement-form>
+                    </div>
+                </template>
+
+                <template if:true={agreeUnitFlag} >
+                    <div class="entries" draggable="true">
+                        <c-parent-statement-component ongetflagvalue={handleUnitFlagValue}></c-parent-statement-component>
+                    </div>
+                </template>
+                <template if:true={paymentFlag} >
+                    <div class="entries" draggable="true">
+                        <c-payment-form ongetflagvalue={handlePaymentFlagValue}></c-payment-form>
+                    </div>
+                </template>
+            </lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small" >
+            <lightning-layout multiple-rows >
+            <lightning-layout-item size="6" padding="around-small"  >
+                <div class="container">
+                    <div class="card">
+                        <div class="first-card"><img src="https://navasai2-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0682w00000OCUr9&operationContext=CHATTER&contentId=05T2w00001a2bFS" alt="">
+                            <h4>Rental Entries</h4>
+                            <p>Create New Entries to all tenents</p>
+                            <button onclick={handleEntries}>Add Entries</button>
+                        </div>
+                        <div class="back-card"></div>
+                        <div class="thid-card"></div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small" >
+                <div class="container">
+                    <div class="card">
+                        <div class="first-card"><img src="https://navasai2-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0682w00000OCUtF&operationContext=CHATTER&contentId=05T2w00001a2bL6" alt="">
+                            <h4>Rental Statement</h4>
+                            <p>View Statements of Tenants</p>
+                            <button onclick={handleStatement}>View Statement</button>
+                        </div>
+                        <div class="back-card"></div>
+                        <div class="thid-card"></div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small" >
+                <div class="container">
+                    <div class="card">
+                        <div class="first-card"><img src="https://navasai2-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0682w00000OCUtG&operationContext=CHATTER&contentId=05T2w00001a2bLf" alt="">
+                            <h4>Rental Agreement</h4>
+                            <p>View Agreement with Tenants</p>
+                            <button onclick={handleAgree}>View Agreement</button>
+                        </div>
+                        <div class="back-card"></div>
+                        <div class="thid-card"></div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small" >
+                <div class="container">
+                    <div class="card">
+                        <div class="first-card"><img src="https://navasai2-dev-ed.develop.file.force.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0682w00000OCUtt&operationContext=CHATTER&contentId=05T2w00001a2bMY" alt="">
+                            <h4>Rental Payment</h4>
+                            <p>Create New Payment</p>
+                            <button onclick={handleUnit}>Payment</button>
+                        </div>
+                        <div class="back-card"></div>
+                        <div class="thid-card"></div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+            
+
+    </lightning-card>        
+</template>

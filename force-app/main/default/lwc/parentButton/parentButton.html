@@ -1,0 +1,11 @@
+<!-- parentComponent.html -->
+<template>
+    <!-- Button to open modal -->
+    <lightning-button label="Open Product Allocation Modal" title="Open Modal" onclick={openModal}></lightning-button>
+
+    <!-- Modal box -->
+    <template if:true={isModalOpen}>
+        <!-- Include the modal component -->
+        <c-calenderized-allocation-l-w-c ></c-calenderized-allocation-l-w-c>
+    </template>
+</template>

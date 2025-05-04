@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Flow Tabset">
+        <lightning-tabset>
+            <template for:each={tabs} for:item="tab">
+                <lightning-tab key={tab.value} label={tab.label}>
+                    <lightning-flow 
+                        flow-api-name={tab.flowName}
+                        onstatuschange={handleStatusChange}>
+                    </lightning-flow>
+                </lightning-tab>
+            </template>
+        </lightning-tabset>
+    </lightning-card>
+</template>

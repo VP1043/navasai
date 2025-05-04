@@ -1,0 +1,60 @@
+<template>
+	<div class="slds-modal slds-fade-in-open custom-modal">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<h2 class="slds-text-heading_medium">Modal Header</h2>
+				<button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={handleClose}>
+                    <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+			</header>
+			<div class="slds-modal__content slds-p-around_medium">
+				<div>
+					<select onchange={handleProductChange}>
+                        <template for:each={productIds} for:item="prodId">
+                            <option key={prodId} value={prodId}>{prodId}</option>
+                        </template>
+                    </select>
+				</div>
+				<h3>{productId}</h3>
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+					<thead>
+						<tr>
+							<th>Month</th>
+							<template for:each={territories} for:item="territory">
+								<th key={territory}>{territory}</th>
+							</template>
+						</tr>
+					</thead>
+					<tbody>
+						<template for:each={months} for:item="month">
+							<tr key={month}>
+								<td>{month}</td>
+								<template for:each={territories} for:item="territory">
+									<td key={territory}>
+										<div class="custom-tooltip">
+											<div class="tooltip-icon">
+												<lightning-icon icon-name="utility:info" size="x-small">
+												</lightning-icon>
+											</div>
+											<div class="tooltip-content">
+												<p>This is a multiline tooltip-like help text for the input field.</p>
+												<p>It can contain multiple lines of content.</p>
+											</div>
+										</div>
+										<lightning-input type="number" onchange={handleChange} data-month={month}
+											data-territory={territory}>
+										</lightning-input>
+									</td>
+								</template>
+							</tr>
+						</template>
+					</tbody>
+				</table>
+				<button onclick={previousProduct} class="slds-button slds-button_neutral">Previous Product</button>
+				<button onclick={nextProduct} class="slds-button slds-button_neutral">Next Product</button>
+			</div>
+		</div>
+	</div>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+</template>

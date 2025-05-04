@@ -1,0 +1,33 @@
+.container{
+    margin: auto;
+    overflow:initial; 
+}
+.close-button {
+  background-color:transparent;
+  color: #333;
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top:200px;
+  left:650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button:before,
+.close-button:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 1.5px;
+  background-color: rgb(8, 8, 8);
+  transform: rotate(45deg);
+}
+
+.close-button:before {
+  transform: rotate(-45deg);
+}
